@@ -1,0 +1,27 @@
+@font-face {
+	font-family: "Roboto";
+	src: url("Roboto.ttf") format("truetype");
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	color: #2c3e50;
+	font-family: "Roboto", sans-serif;
+}
+.thread {
+	padding: 10px 20px 0 20px;
+}
+.about {
+	font-size: 12px;
+}
+.post {
+	padding: 25px;
+	background-color: #ecf0f1;
+}
+#main {
+	width: 80%;
+	margin: auto;
+}

@@ -1,0 +1,14 @@
+t0 2016-04-14 15:20
+This is a thread.
+r1 2016-04-14 15:25
+This is a response.
+r2 2016-04-14 15:40
+This is fun!
+t3 2016-04-14 16:30
+This is another unique thread.
+t4 2016-04-14 16:45
+Neat.
+t5 2016-04-14 17:25
+The next order of business is creating a method to add posts. This must allow users to respond to existing posts in addition to creating entirely new threads. When a thread is added and the source file becomes too large, the first thread in the system will be removed to make room. In this way, the system will never exceed its capacity, regardless of the number of posts that are added. Also on the agenda are reply systems (links to other posts on the page), methods for uploading images, "greentext" replies, sanitization of input, an improved method for storing information, and several other features that are currently unavailable.
+r6 2016-04-14 17:30
+I think improving data storage might become incredibly important. When writing data is permitted, there will be little to prevent users from destroying things.
