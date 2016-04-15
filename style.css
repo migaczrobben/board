@@ -37,3 +37,35 @@ html, body {
 .quote {
 	color: #3498db;
 }
+.open, .submit_response_button {
+	border: none;
+	background-color: #3498db;
+	color: white;
+	border-radius: 2px;
+	padding: 5px 10px 5px 10px;
+}
+.open:hover, .submit_response_button:hover {
+	background-color: #2980b9;
+}
+.open {
+	/*margin-bottom: 20px;*/
+	display: none; /* Don't display until JavaScript is known to work and closes response (this is default value) */
+}
+.submit_response_button {
+	margin-top: 20px;
+}
+.post_bottom {
+	background-color: #ecf0f1;
+	padding: 2px 20px 20px 20px;
+}
+.text_response {
+	display: block;
+	border: 0;
+	border-radius: 2px;
+	color: #2c3e50;
+	font-family: "Roboto", sans-serif;
+	padding: 5px;
+	resize: none;
+	width: 40%;
+	height: 200px;
+}
