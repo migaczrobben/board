@@ -27,6 +27,29 @@ function construct(data, post) -- Build each thread from source
 		
 	end
 	
+		-- Pattern detection for quotations
+		found = 0 -- Shows whether a quotation is currently being highlighted
+		length_modifier = post:len()
+		j = 0 -- Iterator in loop
+		while j < length_modifier do -- "For" loop doesn't work because the maximum value cannot change as text is added to the string; quotations toward the end will not work
+			j = j + 1 -- Must be present to prevent infinite loop
+			if string.sub(post, j, j) then -- Byproduct of looping over an unknown maximum index; ugly but necessary
+				if string.sub(post, j, j) == "|" and (j == 1 or string.sub(post, j - 1, j - 1) == ">") and found == 0 then -- "|" character at start of a line, not in a quotation at present?
+					found = 1 -- Prevent this from executing again to create more <span> tags
+					length_modifier = length_modifier + 20 -- Likely excessive, but it's best to stay on the safe side.
+					post = string.sub(post, 1, j - 1) .. "<span class = \"quote\">" .. string.sub(post, j + 1) -- Begin the quotation
+				elseif found == 1 and string.sub(post, j + 1, j + 1) == "<" and string.sub(post, j + 2, j + 2) == "b" then -- Identifies whether newline (<br>) is next in string
+					found = 0 -- No longer in quotation
+					post = string.sub(post, 1, j) .. "</span>" .. string.sub(post, j + 1) -- End quotation
+				end
+			end
+		end
+		-- Provisions for no newline (<br>) in post (will still end quotation if it's the last line)
+		if found == 1 then
+			found = 0
+			post = post .. "</span>"
+		end
+	
 		-- Add new post to thread (split for readability)
 		thread_builder = thread_builder .. "<div class = \"post\">" -- Begin post
 		thread_builder = thread_builder .. "<div class = \"about\">" .. string.sub(data, 2) .. "</div>" -- Add data

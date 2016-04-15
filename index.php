@@ -7,6 +7,7 @@
 	</head>
 	<body>
 		<div id = "main">
+			<div id = "banner"></div>
 			<?php
 				echo(exec("lua board.lua"));
 			?>
